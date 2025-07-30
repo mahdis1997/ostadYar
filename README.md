@@ -39,7 +39,7 @@ A web-based platform for managing academic tasks between instructors and student
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/ostadyar.git
+   git clone https://github.com/mahdis1997/ostadyar.git
    ```
 2. Open the project in **Visual Studio**
 3. Restore NuGet packages

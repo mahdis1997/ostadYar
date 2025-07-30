@@ -1,0 +1,89 @@
+﻿@model OstadYarProject.Models.Test
+@{
+    ViewBag.Title = "ویرایش آزمون";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">مشخصات آزمون</h4>
+                        </div>
+                        <div class="content">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Title)</label>
+                                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Title) })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.DateTimeStart)</label>
+                                            @Html.TextBoxFor(m => m.DateTimeStart, new { id = "datetimepicker1", @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.DateTimeStart) })
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.DateTimeEnd)</label>
+                                            @Html.TextBoxFor(m => m.DateTimeEnd, new { id = "datetimepicker2", @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.DateTimeEnd), Type = "DateTime" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Duration)</label>
+                                            @Html.TextBoxFor(m => m.Duration, new { @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Duration) })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Description)</label>
+                                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Description) })
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-info btn-fill pull-right">ثبت اطلاعات</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts
+{
+    <script>
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'en'
+            });
+            $('#datetimepicker2').datetimepicker({
+                dayOfWeekStart: 1,
+                lang: 'en'
+            });
+        });
+    </script>
+}
+
+

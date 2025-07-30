@@ -1,0 +1,105 @@
+﻿@model IEnumerable<OstadYarProject.Models.Question>
+@{
+    ViewBag.Title = "ViewDetails";
+}
+@using (Html.BeginForm())
+{
+    <div class="col-md-12">
+        <div class="card ">
+            <div class="header">
+                <h4 class="title">سوالات آزمون</h4>
+                <p class="category">@Ajax.ActionLink("ایجاد سوال", "CreateQuestion", "Question", new { id = @ViewBag.TestId }, new AjaxOptions() { HttpMethod = "POST" })</p>
+            </div>
+            <div class="content">
+                <div class="table-full-width">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <div class="col-md-5">
+                                    <div class="funkyradio">
+                                        @foreach (var question in Model)
+                                        {
+
+                                            <span>@question.QuestionTitle</span>
+                                            <p style="font-size: smaller;"> @Ajax.ActionLink("ویرایش", "UpdateQuestion", "Question", new {id = @question.Id}, new AjaxOptions() {HttpMethod = "POST"}) ||
+                                        @Html.ActionLink("حذف", "DeleteQuestion", "Question", new { id = @question.Id }, new { @class = "Remove" })</p>
+                                            
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio" id="radio1 @question.Id" />
+                                                <label for="radio1 @question.Id">@question.Option1</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio" id="radio2 @question.Id" />
+                                                <label for="radio2 @question.Id">@question.Option2</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio" id="radio3 @question.Id" />
+                                                <label for="radio3 @question.Id">@question.Option3</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio" id="radio4 @question.Id" />
+                                                <label for="radio4 @question.Id">@question.Option4</label>
+                                            </div>
+                                            <hr/>
+                                        }
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div class="footer">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-history"></i>  (@ViewBag.TotalScore) مجموع نمرات
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}  
+@section Scripts
+{
+    <script>
+
+        $(".Remove").click(function (ev) {
+            ev.preventDefault();
+            var self = $(this);
+            BootstrapDialog.show(
+            {
+                title: "حذف سوال",
+                draggable: true,
+                closable: true,
+                closeByBackdrop: false,
+                closeByKeyboard: false,
+                message: "آیا از حذف اطلاعات مطمئن هستید ؟",
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [
+                    {
+                        label: "Yes",
+                        hotkey: 13,
+                        cssClass: "btn-danger",
+                        action: function () {
+                            location.assign(self.attr("href"));
+                        }
+                    },
+                 {
+                     label: "No",
+                     hotkey: 27,
+                     cssClass: "btn-success",
+                     action: function (dlg) {
+                         dlg.close();
+                     }
+                 }]
+
+
+            });
+        });
+    </script>
+}
+         

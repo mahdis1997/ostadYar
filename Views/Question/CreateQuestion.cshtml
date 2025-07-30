@@ -1,0 +1,117 @@
+﻿@model OstadYarProject.Models.Question
+@{
+    ViewBag.Title = "CreateQuestion";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">ایجاد سوال</h4>
+                        </div>
+                        <div class="content">
+                            <form>
+                              @Html.ValidationMessage("ErrorMessage", new { @class = "text-danger" })
+                              @Html.ValidationMessage("Erorr", new { @class = "text-success" })
+                                <div class="row">
+                                    @Html.HiddenFor(m => m.Test.Id)
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.QuestionTitle)</label>
+                                            @Html.TextBoxFor(m => m.QuestionTitle, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.QuestionTitle)})
+                                            @Html.ValidationMessageFor(m=>m.QuestionTitle, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Option1)</label>
+                                            @Html.TextBoxFor(m => m.Option1, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Option1)})
+                                            @Html.ValidationMessageFor(m => m.Option1, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Option2)</label>
+                                            @Html.TextBoxFor(m => m.Option2, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Option2)})
+                                            @Html.ValidationMessageFor(m => m.Option2, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Option3)</label>
+                                            @Html.TextBoxFor(m => m.Option3, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Option3)})
+                                            @Html.ValidationMessageFor(m => m.Option3, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Option4)</label>
+                                            @Html.TextBoxFor(m => m.Option4, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Option4)})
+                                            @Html.ValidationMessageFor(m => m.Option4, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Answer)</label>
+                                            @Html.DropDownListFor(m => m.Answer, new SelectList(new List<int> {1, 2, 3, 4}), null, null)
+                                            @Html.ValidationMessageFor(m => m.Answer, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.DisplayOrder)</label>
+                                            @Html.DropDownListFor(m => m.DisplayOrder, new SelectList(new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}), null, null)
+                                            @Html.ValidationMessageFor(m => m.DisplayOrder, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Score)</label>
+                                            @Html.TextBoxFor(m => m.Score, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Score)})
+                                            @Html.ValidationMessageFor(m => m.Score, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr>
+                                    <div class="stats">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-info btn-fill pull-right">ثبت</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    @Ajax.ActionLink("برگشت به لیست", "ViewDetails", "Test", new {id = Model.Test.Id}, new AjaxOptions() {HttpMethod = "POST"})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+

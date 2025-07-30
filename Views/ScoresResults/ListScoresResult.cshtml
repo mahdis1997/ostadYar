@@ -1,0 +1,50 @@
+﻿@model IEnumerable<OstadYarProject.Models.StudentTest>
+@{
+    ViewBag.Title = "ListScoresResult";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست نمرات</h4>
+                        <div>
+                            <span>@Html.ValidationMessage("Error", new { @class = "text-warning" })</span>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.DateTimeStart)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Name)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Family)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Users.UserName)</th>
+                            <th>@Html.DisplayNameFor(m => m.Test.Title)</th>
+                            <th>@Html.DisplayNameFor(m => m.TotalScore)</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var test in Model)
+                                {
+                                    <tr>
+                                        <td>@test.Id</td>
+                                        <td>@test.DateTimeStart</td>
+                                        <td>@test.Students.Name</td>
+                                        <td>@test.Students.Family</td>
+                                        <td>@test.Students.Users.UserName</td>
+                                        <td>@test.Test.Title</td>
+                                        <td>@test.TotalScore</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿
+@model OstadYarProject.Models.Student
+
+@{
+    ViewBag.Title = "ایجاد اطلاعات دانشجو";
+}
+@using (Html.BeginForm())
+{
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">مشخصات دانشجو</h4>
+                        </div>
+                        <div class="content">
+                            <form>
+                                <div class="row">
+                                    <div>
+                                        <span>@Html.ValidationMessage("ErrorMessage", new { @class = "text-danger" })</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Users.UserName)</label>
+                                            @Html.TextBoxFor(m => m.Users.UserName, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Users.UserName)})
+                                            @Html.ValidationMessageFor(m => m.Users.UserName, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Users.Password)</label>
+                                            @Html.PasswordFor(m => m.Users.Password, new {@class = "form-control"})
+                                            @Html.ValidationMessageFor(m => m.Users.Password, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Email)</label>
+                                            @Html.TextBoxFor(m => m.Email, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Email)})
+                                            @Html.ValidationMessageFor(m => m.Email, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Name)</label>
+                                            @Html.TextBoxFor(m => m.Name, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Name)})
+                                            @Html.ValidationMessageFor(m => m.Name, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Family)</label>
+                                            @Html.TextBoxFor(m => m.Family, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Family)})
+                                            @Html.ValidationMessageFor(m => m.Family, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.IdStudent)</label>
+                                            @Html.TextBoxFor(m => m.IdStudent, new {@class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.IdStudent)})
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-info btn-fill pull-right">ثبت اطلاعات</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+}

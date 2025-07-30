@@ -1,0 +1,66 @@
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\OstadYarProject.dll.config
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\OstadYarProject.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\OstadYarProject.pdb
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\EntityFramework.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Razor.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\EntityFramework.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Razor.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.xml
+E:\PROJECTS\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.dll
+E:\PROJECTS\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.pdb
+E:\PROJECTS\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.csprojResolveAssemblyReference.cache
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\OstadYarProject.dll.config
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\OstadYarProject.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\OstadYarProject.pdb
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\EntityFramework.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Razor.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\EntityFramework.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Razor.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.xml
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.csprojResolveAssemblyReference.cache
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.dll
+C:\Users\arman\Desktop\finl ostadyar\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.pdb
+C:\pp\OstadYarProject\OstadYarProject\bin\OstadYarProject.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\OstadYarProject.pdb
+C:\pp\OstadYarProject\OstadYarProject\bin\EntityFramework.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Razor.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.dll
+C:\pp\OstadYarProject\OstadYarProject\bin\EntityFramework.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\EntityFramework.SqlServer.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Razor.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Deployment.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Webpages.Razor.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Helpers.xml
+C:\pp\OstadYarProject\OstadYarProject\bin\System.Web.Mvc.xml
+C:\pp\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.csprojResolveAssemblyReference.cache
+C:\pp\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.dll
+C:\pp\OstadYarProject\OstadYarProject\obj\Debug\OstadYarProject.pdb

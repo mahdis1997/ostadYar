@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OstadYarProject.Models.ProjectStudent>
+@{
+    ViewBag.Title = "ListScoreProjectResult";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست نمرات</h4>
+                        <div>
+                            <span>@Html.ValidationMessage("Error", new { @class = "text-warning" })</span>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Name)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Family)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Users.UserName)</th>
+                            <th>@Html.DisplayNameFor(m => m.Project.Title)</th>
+                            <th>@Html.DisplayNameFor(m => m.Score)</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var test in Model)
+                                {
+                                    <tr>
+                                        <td>@test.Id</td>
+                                        <td>@test.Students.Name</td>
+                                        <td>@test.Students.Family</td>
+                                        <td>@test.Students.Users.UserName</td>
+                                        <td>@test.Project.Title</td>
+                                        <td>@test.Score</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

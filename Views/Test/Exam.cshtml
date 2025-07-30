@@ -1,0 +1,139 @@
+﻿@model IEnumerable<OstadYarProject.Models.Question>
+@{
+    ViewBag.Title = "Exam";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div class="col-md-12">
+        <div class="card ">
+            <div class="header">
+                <h4 class="title">آزمون</h4>
+                <p class="category">
+                    <p>زمان باقی مانده شما
+                    </p>
+                    <div id="defaultCountdown"></div>
+                </p>
+            </div>
+            <div class="content">
+                <div class="table-full-width">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <div class="col-md-5">
+                                    @Html.HiddenFor(m => m.First().Test.Id)
+                                    @foreach (var question in Model)
+                                    {
+                                        <div class="funkyradio">
+                                            <span class="question">@question.QuestionTitle</span>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio @question.Id" id="radio1 @question.Id"/>
+                                                <label for="radio1 @question.Id">@question.Option1</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio @question.Id" id="radio2 @question.Id"/>
+                                                <label for="radio2 @question.Id">@question.Option2</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio @question.Id" id="radio3 @question.Id"/>
+                                                <label for="radio3 @question.Id">@question.Option3</label>
+                                            </div>
+                                            <div class="funkyradio-info">
+                                                <input type="radio" name="radio @question.Id" id="radio4 @question.Id"/>
+                                                <label for="radio4 @question.Id">@question.Option4</label>
+                                            </div>
+
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                    }
+
+                                </div>
+                                <div class="col-md-12">
+                                   @Ajax.ActionLink("ثبت و اتمام آزمون", "SaveExam", "Test", new { id = @Model.First().Test.Id.ToString() }, new AjaxOptions() { HttpMethod = "POST" })
+                                </div>
+
+                            </td>
+                                
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts
+{
+    <script>
+        $(function () {
+            $.ajax({
+                url: "@Url.Action("GetTest","Test")",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: { id: $("input[type=hidden]").val() },
+                success:function(data) {
+                    var austDay = new Date(parseInt(data.DateTimeEnd.replace('/Date(', '').replace(')/', '')));
+                    $('#defaultCountdown').countdown({
+                        until: austDay, Format: 'HMS' ,
+                        onExpiry:function() {
+                            $.ajax({
+                                url: "@Url.Action("SaveExam", "Test")",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                data:{id:$("input[type=hidden]").val()},
+                                success:function() {
+                                    alert("!زمان شما به پایان رسید، شما دیگر قادر به امتحان مجدد نمی باشید");
+                                    location.assign("@Url.Action("TestListForStudent","Test")");
+                                }
+                            });
+                            alert("!زمان شما به پایان رسید، شما دیگر قادر به امتحان مجدد نمی باشید");
+                            location.assign("@Url.Action("TestListForStudent","Test")");
+                        }
+                    });
+                }
+        });
+           
+       
+
+            $.ajax({
+                url: "@Url.Action("GetAnswer","Test")",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: { id: $("input[type=hidden]").val() },
+                success: function (data) {
+                    $.map(data, function (item) {
+                        if (item == null) return;
+                        var id = "radio" + item.StudentAnswer + " " + item.Questions.Id;
+                        $("input[type=radio][id='" + id + "']").attr({ checked: true });
+                    });
+                }
+            });
+
+
+
+            $("input[type=radio]").click(function () {
+                var id = $(this).attr("id");
+                $.ajax({
+                    url: "@Url.Action("AddAnswer", "Test")",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: { idRadioButton: id },
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
+
+            /* $("input[type=radio][id*='ye chize khas']")*/
+            /* $.ajax({
+                url: "",
+                type: "JSON",
+                data
+
+            });*/
+        });
+    </script>
+}
+
+

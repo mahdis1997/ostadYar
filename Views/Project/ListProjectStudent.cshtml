@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OstadYarProject.Models.ProjectStudent>
+@{
+    ViewBag.Title = "ListProjectStudent";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست نمرات</h4>
+                        <div>
+                            <span>@Html.ValidationMessage("Error", new { @class = "text-warning" })</span>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Name)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Family)</th>
+                            <th>@Html.DisplayNameFor(m => m.Students.Users.UserName)</th>
+                            <th>@Html.DisplayNameFor(m => m.Project.Title)</th>
+                            <th>عملیات</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var pro in Model)
+                                {
+                                    <tr>
+                                        <td>@pro.Id</td>
+                                        <td>@pro.Students.Name</td>
+                                        <td>@pro.Students.Family</td>
+                                        <td>@pro.Students.Users.UserName</td>
+                                        <td>@pro.Project.Title</td>
+                                        <td>@Ajax.ActionLink("مشاهده جزییات", "ViewDetailsProjectStudent", "Project", new { id = @pro.Id }, new AjaxOptions() { HttpMethod = "POST" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

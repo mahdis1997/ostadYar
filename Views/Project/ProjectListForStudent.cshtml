@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OstadYarProject.Models.Project>
+@{
+    ViewBag.Title = "ListProjectForStudent";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست پروژه ها</h4>
+                        <div>
+                            <span>@Html.ValidationMessage("Error", new { @class = "text-warning" })</span>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.DateTimeStart)</th>
+                            <th>@Html.DisplayNameFor(m => m.DateTimeEnd)</th>
+                            <th>@Html.DisplayNameFor(m => m.Title)</th>
+                            <th>@Html.DisplayNameFor(m => m.Score)</th>
+                            <th>عملیات</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var project in Model)
+                                {
+                                    <tr>
+                                        <td>@project.Id</td>
+                                        <td>@project.DateTimeStart</td>
+                                        <td>@project.DateTimeEnd</td>
+                                        <td>@project.Title</td>
+                                        <td>@project.Score</td>
+                                        <td>@Ajax.ActionLink("جزییات", "DetailProject", "Project", new { id = @project.Id }, new AjaxOptions() { HttpMethod = "POST" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

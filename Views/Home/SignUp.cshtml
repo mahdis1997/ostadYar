@@ -1,0 +1,114 @@
+﻿@model OstadYarProject.Models.Student
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1>
+                        <strong>نرم افزار استادیار</strong>
+                    </h1>
+                    <div class="description">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>در وبسایت استادیار ثبت نام کنید</h3>
+                            <p>لطفا مشخصات خود را وارد کنید</p>
+
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-user-plus"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-bottom">
+                        <form role="form" action="" method="post" class="login-form">
+                            <div class="row">
+                                <div>
+                                    <span>@Html.ValidationMessage("ErrorMessage", new { @class = "text-danger" })</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">Username</label>
+                                        @Html.TextBoxFor(m => m.Users.UserName, new { @class = "form-username form-control", id = "form-username", name = "form-username", placeholder =@Html.DisplayNameFor(m=>m.Users.UserName)})
+                                        @Html.ValidationMessageFor(m => m.Users.UserName, String.Empty, new { @class = "text-danger", @style = "font-size: smaller" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Password</label>
+                                        @Html.PasswordFor(m => m.Users.Password, new { @class = "form-password form-control", id = "form-password", name = "form-password", placeholder = @Html.DisplayNameFor(m=>m.Users.Password) })
+                                        @Html.ValidationMessageFor(m => m.Users.Password, String.Empty, new { @class = "text-danger", @style = "font-size: smaller" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-name">Name</label>
+                                        @Html.TextBoxFor(m => m.Name, new {@class = "form-username form-control", id = "form-name", name = "form-name", placeholder = @Html.DisplayNameFor(m=>m.Name)})
+                                        @Html.ValidationMessageFor(m => m.Name, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-family">Family</label>
+                                        @Html.TextBoxFor(m => m.Family, new {@class = "form-username form-control", id = "form-family", name = "form-family", placeholder = @Html.DisplayNameFor(m=>m.Family)})
+                                        @Html.ValidationMessageFor(m => m.Family, String.Empty, new {@class = "text-danger", @style = "font-size: smaller"})
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-name">Name</label>
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "form-name", name = "form-name", placeholder = @Html.DisplayNameFor(m=>m.Email) })
+                                        @Html.ValidationMessageFor(m => m.Email, String.Empty, new { @class = "text-danger", @style = "font-size: smaller" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-family">Family</label>
+                                        @Html.TextBoxFor(m => m.IdStudent, new { @class = "form-control", id = "form-family", name = "form-family", placeholder = @Html.DisplayNameFor(m=>m.IdStudent)})
+                                        @Html.ValidationMessageFor(m => m.IdStudent, String.Empty, new { @class = "text-danger", @style = "font-size: smaller" })
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn">! ثبت نام</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 social-login">
+                    <div class="social-login-buttons">
+                        <a class="btn btn-link-2" href="@Url.Action("Login", "Home")">
+                            @*<i class="btn btn-success"></i>*@ برگشت
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,177 @@
+﻿@using OstadYarProject.Models
+<html>
+<head>
+
+    <title>@ViewBag.Title - مدیریت وبسایت استادیار</title>
+    @RenderSection("head", required: false)
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/light-bootstrap-dashboard.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <link href="~/Content/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="~/Content/CheckBoxCss.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery.countdown.css">
+    <link href="~/Content/jquery-te-1.4.0.css" rel="stylesheet"/>
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+
+    <style type="text/css">
+        #defaultCountdown {
+            width: 240px;
+            height: 45px;
+        }
+    </style>
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.plugin.min.js"></script>
+    <script src="~/Scripts/jquery.countdown.js"></script>
+    <script src="~/Scripts/jquery.countdown-fa.js"></script>
+    <script src="~/Scripts/jquery-te-1.4.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap-checkbox-radio-switch.js"></script>
+    <script src="~/Scripts/chartist.min.js"></script>
+    <script src="~/Scripts/bootstrap-notify.js"></script>
+    <script src="~/Scripts/light-bootstrap-dashboard.js"></script>
+    <script src="~/Scripts/demo.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/placeholder.js"></script>
+    <script src="~/Scripts/bootstrap-dialog.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    <script src="~/Scripts/jquery.backstretch.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.full.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="blue" data-image="../img/backgrounds/1.jpg">
+
+            <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+        -->
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="@Url.Action("HomeStudent","Home")" class="simple-text">
+                        نرم افزار استادیار
+                    </a>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="@Url.Action("DetailInfoStudent", "Student")">
+                            <i class="pe-7s-user"></i>
+                            <p>مدیریت دانشجو</p>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("TestListForStudent","Test")">
+                            <i class="pe-7s-note2"></i>
+                            <p> آزمون ها</p>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ProjectListForStudent","Project")">
+                            <i class="pe-7s-disk"></i>
+                            <p>پروژه ها</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListScoresResult", "ScoresResults")">
+                            <i class="pe-7s-display2"></i>
+                            <p>نتیجه نمرات آزمون</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ListScoreProjectResult", "ScoresResults")">
+                            <i class="pe-7s-display1"></i>
+                            <p>نتیجه نمرات پروژه</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("AboutUs", "Home")">
+                            <i class="pe-7s-call"></i>
+                            <p>درباره ما</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <nav class="navbar navbar-default navbar-fixed">
+                <div class="container-fluid">
+                    <ul class="nav navbar-right top-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                @if (Session["Login"] != null)
+                                {
+                                    var user = Session["Login"] as User;
+                                    @user.UserName
+                                }
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action("DetailInfoStudent", "Student")"><i class="fa fa-fw fa-user"></i> حساب شخصی</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("TestListForStudent","Test")"><i class="fa fa-fw fa-envelope"></i>آزمون ها</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ProjectListForStudent","Project")"><i class="fa fa-fw fa-dashboard"></i>پروژه ها</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="@Url.Action("SignOut", "Home")"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>                
+  
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("Home","Home")">
+                                    صفحه اصلی
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("AboutUs","Home")">
+                                    درباره ما
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="copyright pull-right">
+                        &copy; تمام حقوق این وبسایت محفوظ می باشد
+                    </p>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    @RenderSection("Scripts", false)
+    <script>
+
+    </script>
+</body>
+
+</html>

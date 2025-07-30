@@ -1,0 +1,87 @@
+﻿@model IEnumerable<OstadYarProject.Models.Test>
+@{
+    ViewBag.Title = "مدیریت آزمون";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست آزمون</h4>
+                        <p class="category">@Html.ActionLink("ایجاد آزمون", "CreateTest", "Test")</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.Title)</th>
+                            <th>@Html.DisplayNameFor(m => m.Duration)</th>
+                            <th>@Html.DisplayNameFor(m => m.DateTimeStart)</th>
+                            <th>@Html.DisplayNameFor(m => m.DateTimeEnd)</th>
+                            <th>عملیات</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var test in Model)
+                                {
+                                    <tr>
+                                        <td>@test.Id</td>
+                                        <td>@test.Title</td>
+                                        <td>@test.Duration</td>
+                                        <td>@test.DateTimeStart</td>
+                                        <td>@test.DateTimeEnd</td>
+                                        <td>@Ajax.ActionLink("مشاهده جزییات", "ViewDetails", "Test", new { id = @test.Id }, new AjaxOptions() { HttpMethod = "POST" })</td>
+                                        <td>@Ajax.ActionLink("ویرایش", "UpdateTest", "Test", new { id = @test.Id }, new AjaxOptions() { HttpMethod = "POST" })</td>
+                                        <td>@Html.ActionLink("حذف", "DeleteTest", "Test", new { id = @test.Id }, new { @class = "Remove" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+
+        $(".Remove").click(function (ev) {
+            ev.preventDefault();
+            var self = $(this);
+            BootstrapDialog.show(
+            {
+                title: "حذف آزمون",
+                draggable: true,
+                closable: true,
+                closeByBackdrop: false,
+                closeByKeyboard: false,
+                message: "آیا از حذف اطلاعات مطمئن هستید ؟",
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [
+                    {
+                        label: "Yes",
+                        hotkey: 13,
+                        cssClass: "btn-danger",
+                        action: function () {
+                            location.assign(self.attr("href"));
+                        }
+                    },
+                 {
+                     label: "No",
+                     hotkey: 27,
+                     cssClass: "btn-success",
+                     action: function (dlg) {
+                         dlg.close();
+                     }
+                 }]
+
+
+            });
+        });
+    </script>
+}
+
+

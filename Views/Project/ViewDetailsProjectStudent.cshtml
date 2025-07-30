@@ -1,0 +1,71 @@
+﻿@model OstadYarProject.Models.ProjectStudent
+@{
+    ViewBag.Title = "ViewDetailsProjectStudent";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm(null, null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">مشخصات پروژه</h4>
+
+                        </div>
+                        <div class="content">
+                            <form>
+                                <div class="row">
+                                    @Html.HiddenFor(m => m.Project.Id)
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Project.Title)</label>
+                                            @Html.TextBoxFor(m => m.Project.Title, new { @readonly = true, @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Project.Title) })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.File)</label>
+                                            <span> @Html.ActionLink("DownloadFile","DownloadFile",new {id=@Model.Id}) </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Score)</label>
+                                            @Html.TextBoxFor(m => m.Score, new { @class = "form-control", PlaceHolder = @Html.DisplayNameFor(m => m.Score) })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>@Html.DisplayNameFor(m => m.Description)</label>
+                                            @Html.TextAreaFor(m => m.Description, new
+                                            {
+                                                @class = "jqte-test",
+                                                PlaceHolder = @Html.DisplayNameFor(m => m.Description)
+                                            })
+                                            @Html.ValidationMessageFor(m => m.Description, String.Empty, new { @class = "text-danger", @style = "font-size: smaller" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-info btn-fill pull-right">ثبت اطلاعات</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+}
+@section Scripts
+{
+    <script>
+        $('.jqte-test').jqte();
+
+    </script>
+}

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<OstadYarProject.Models.Student>
+@{
+    ViewBag.Title = "مدیریت دانشجو";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">لیست دانشجویان</h4>
+                        <p class="category">@Html.ActionLink("ایجاد دانشجو","CreateStudent","Student")</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.Name)</th>
+                            <th>@Html.DisplayNameFor(m => m.Family)</th>
+                            <th>@Html.DisplayNameFor(m => m.Users.UserName)</th>
+                            <th>عملیات</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var student in Model)
+                                {
+                                    <tr>
+                                        <td>@student.Id</td>
+                                        <td>@student.Name</td>
+                                        <td>@student.Family</td>
+                                        <td>@student.Users.UserName</td>
+                                        <td>@Ajax.ActionLink("ویرایش", "UpdateStudent", "Student", new { id = @student.Id }, new AjaxOptions() { HttpMethod = "POST" })</td>
+                                        <td>@Html.ActionLink("حذف", "DeleteStudent", "Student", new { id = @student.Id }, new { @class = "Remove" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+
+        $(".Remove").click(function (ev) {
+            ev.preventDefault();
+            var self = $(this);
+            BootstrapDialog.show(
+            {
+                title: "حذف دانشجو",
+                draggable: true,
+                closable: true,
+                closeByBackdrop: false,
+                closeByKeyboard: false,
+                message: "آیا از حذف اطلاعات مطمئن هستید ؟",
+                type: BootstrapDialog.TYPE_DANGER,
+                buttons: [
+                    {
+                        label: "Yes",
+                        hotkey: 13,
+                        cssClass: "btn-danger",
+                        action: function () {
+                            location.assign(self.attr("href"));
+                        }
+                    },
+                 {
+                     label: "No",
+                     hotkey: 27,
+                     cssClass: "btn-success",
+                     action: function (dlg) {
+                         dlg.close();
+                     }
+                 }]
+
+
+            });
+        });
+    </script>
+}
